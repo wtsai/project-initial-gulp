@@ -145,7 +145,7 @@ gulp.task("dist:images", ["update"], function() {
 		.pipe(gulp.dest(DIST_PATH.images));
 });
 
-gulp.task("copy-app-minify", function() { 
+gulp.task("copy-app-minify", ["npm-install", "dist:less", "dist:javascript", "dist:images"], function() { 
 	gulp.src(SRC_PATH.components_min)
 		.pipe(gulp.dest(DIST_PATH.scripts));
 	gulp.src(APP_PATH.bin)
@@ -180,7 +180,7 @@ gulp.task("clean", function() {
 		.pipe(plugins.rimraf());
 });
 
-gulp.task("prod", ["copy-app-minify", "npm-install", "dist:less", "dist:javascript", "dist:images"]);
+gulp.task("prod", ["copy-app-minify"]);
 
 gulp.task('browser-sync', ["prod"], function() {
     browserSync({
