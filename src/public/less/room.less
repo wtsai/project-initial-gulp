@@ -1,0 +1,35 @@
+@base: 100%;
+@base-top: 0;
+@base-left: 0;
+@base-border: 1px;
+@base-border-color: #ccc;
+@chatwidth: 300px;
+
+body {
+	background: #205C7E;
+}
+.chat-panel {
+    height: @base;
+    width: @base;
+}
+
+.board-panel {
+	background: #f0f0f0;
+	padding: 12px 4px 0 14px;
+	position: absolute;
+	top: @base-top;
+	left: @base-left;
+	width: @chatwidth;
+	height: @base;
+	z-index: 5
+}
+
+.messages {
+    height: @base - 10%;
+    border: @base-border solid @base-border-color;
+    overflow-y: auto;
+}
+
+.send-message {
+    width: @base;
+}

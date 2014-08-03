@@ -1,0 +1,16 @@
+{
+  "name": "gulp technode",
+  "version": "0.0.0",
+  "description": "Pratice example",
+  "keywords": [
+    "AngularJS"
+  ],
+  "authors": [
+    "WesleyTsai"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.2.19",
+    "bootstrap": "~3.2.0"
+  }
+}

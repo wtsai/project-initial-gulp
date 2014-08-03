@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	div
+		div.board-panel 
+			div.chat-panel(ng-controller='RoomCtrl')
+				div.list-group.messages(auto-scroll-to-bottom)
+					div.list-group-item.message(ng-repeat='message in messages') 訪客: {{message}}
+				form.send-message(ng-controller='MessageCreatorCtrl')
+					div.form-group
+						textarea.form-control.message-input(required,  ng-model='newMessage', ctrl-enter-break-line='createMessage()')
+	include scripts

@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+var debug = require('debug')('technode');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 9000);
+
+var io = require('socket.io').listen(app.listen(app.get('port')))
+var messages = [];
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('connected');
+  socket.on('messages.read', function () {
+    socket.emit('messages.read', messages);
+  });
+  socket.on('messages.create', function (message) {
+    messages.push(message);
+    io.sockets.emit('messages.add', message);
+  });
+});
+
+console.log('TechNode is on port ' + app.get('port') + '!')
+
